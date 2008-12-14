@@ -11,6 +11,8 @@
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		C67AA5C00EF527E6009A274D /* SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AA5BF0EF527E6009A274D /* SpotifyScrobbler.m */; };
 		C6FA78D60EF53C05003DE76C /* SPController+SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA78D50EF53C05003DE76C /* SPController+SpotifyScrobbler.m */; };
+		C6FA79930EF5534D003DE76C /* SPApplication+SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA79920EF5534D003DE76C /* SPApplication+SpotifyScrobbler.m */; };
+		C6FA799F0EF557A5003DE76C /* SPView+SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA799E0EF557A5003DE76C /* SPView+SpotifyScrobbler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,12 @@
 		C6FA78D50EF53C05003DE76C /* SPController+SpotifyScrobbler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPController+SpotifyScrobbler.m"; sourceTree = "<group>"; };
 		C6FA78D90EF53C27003DE76C /* SPController+SpotifyScrobbler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPController+SpotifyScrobbler.h"; sourceTree = "<group>"; };
 		C6FA78E50EF53C97003DE76C /* SPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPController.h; sourceTree = "<group>"; };
+		C6FA79910EF5534D003DE76C /* SPApplication+SpotifyScrobbler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPApplication+SpotifyScrobbler.h"; sourceTree = "<group>"; };
+		C6FA79920EF5534D003DE76C /* SPApplication+SpotifyScrobbler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPApplication+SpotifyScrobbler.m"; sourceTree = "<group>"; };
+		C6FA79940EF55371003DE76C /* SPApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPApplication.h; sourceTree = "<group>"; };
+		C6FA799B0EF5573A003DE76C /* SPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPView.h; sourceTree = "<group>"; };
+		C6FA799D0EF557A5003DE76C /* SPView+SpotifyScrobbler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPView+SpotifyScrobbler.h"; sourceTree = "<group>"; };
+		C6FA799E0EF557A5003DE76C /* SPView+SpotifyScrobbler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPView+SpotifyScrobbler.m"; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +82,12 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C6FA799B0EF5573A003DE76C /* SPView.h */,
+				C6FA799D0EF557A5003DE76C /* SPView+SpotifyScrobbler.h */,
+				C6FA799E0EF557A5003DE76C /* SPView+SpotifyScrobbler.m */,
+				C6FA79940EF55371003DE76C /* SPApplication.h */,
+				C6FA79910EF5534D003DE76C /* SPApplication+SpotifyScrobbler.h */,
+				C6FA79920EF5534D003DE76C /* SPApplication+SpotifyScrobbler.m */,
 				C6FA78E50EF53C97003DE76C /* SPController.h */,
 				C6FA78D90EF53C27003DE76C /* SPController+SpotifyScrobbler.h */,
 				C6FA78D50EF53C05003DE76C /* SPController+SpotifyScrobbler.m */,
@@ -173,6 +187,8 @@
 			files = (
 				C67AA5C00EF527E6009A274D /* SpotifyScrobbler.m in Sources */,
 				C6FA78D60EF53C05003DE76C /* SPController+SpotifyScrobbler.m in Sources */,
+				C6FA79930EF5534D003DE76C /* SPApplication+SpotifyScrobbler.m in Sources */,
+				C6FA799F0EF557A5003DE76C /* SPView+SpotifyScrobbler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

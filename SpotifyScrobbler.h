@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface SpotifyScrobbler : NSObject 
 {
 }
@@ -17,5 +16,7 @@
 + (SpotifyScrobbler*)sharedInstance;
 
 + (BOOL)renameSelector:(SEL)originalSelector toSelector:(SEL)newSelector onClass:(Class)class;
+
++ (void)listInstanceVars:(Class)class;
 
 @end

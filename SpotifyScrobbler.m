@@ -8,6 +8,8 @@
 
 #import "SpotifyScrobbler.h"
 #import "SPController+SpotifyScrobbler.h"
+#import "SPApplication+SpotifyScrobbler.h"
+#import "SPView+SpotifyScrobbler.h"
 #import <objc/objc-class.h>
 
 
@@ -17,6 +19,8 @@
 {
 	SpotifyScrobbler *plugin = [SpotifyScrobbler sharedInstance];
 	[SPController initScrobbler:plugin];
+	[SPApplication initScrobbler:plugin];
+	[SPView initScrobbler:plugin];
 }
 
 + (SpotifyScrobbler*)sharedInstance
@@ -39,6 +43,16 @@
 
 	method->method_name = newSelector;
 	return YES;
+}
+
++ (void)listInstanceVars:(Class)class
+{
+	unsigned int i, len = 0;
+	Ivar *ivars = class_copyIvarList(class, &len);
+	for(i = 0; i < len; i++)
+	{
+		NSLog(@" - %s", ivar_getName(ivars[i]));
+	}
 }
 
 @end
