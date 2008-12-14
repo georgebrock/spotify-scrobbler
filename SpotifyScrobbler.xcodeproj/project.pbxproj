@@ -13,7 +13,6 @@
 		C6FA78D60EF53C05003DE76C /* SPController+SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA78D50EF53C05003DE76C /* SPController+SpotifyScrobbler.m */; };
 		C6FA79930EF5534D003DE76C /* SPApplication+SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA79920EF5534D003DE76C /* SPApplication+SpotifyScrobbler.m */; };
 		C6FA799F0EF557A5003DE76C /* SPView+SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA799E0EF557A5003DE76C /* SPView+SpotifyScrobbler.m */; };
-		C6FA7A360EF572EB003DE76C /* Test.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6FA7A350EF572EB003DE76C /* Test.xib */; };
 		C6FA7A540EF57578003DE76C /* GrowlDelegate+SpotifyScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA7A530EF57578003DE76C /* GrowlDelegate+SpotifyScrobbler.m */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		C6FA799B0EF5573A003DE76C /* SPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPView.h; sourceTree = "<group>"; };
 		C6FA799D0EF557A5003DE76C /* SPView+SpotifyScrobbler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPView+SpotifyScrobbler.h"; sourceTree = "<group>"; };
 		C6FA799E0EF557A5003DE76C /* SPView+SpotifyScrobbler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPView+SpotifyScrobbler.m"; sourceTree = "<group>"; };
-		C6FA7A350EF572EB003DE76C /* Test.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test.xib; sourceTree = "<group>"; };
 		C6FA7A510EF57564003DE76C /* GrowlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlDelegate.h; sourceTree = "<group>"; };
 		C6FA7A520EF57578003DE76C /* GrowlDelegate+SpotifyScrobbler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GrowlDelegate+SpotifyScrobbler.h"; sourceTree = "<group>"; };
 		C6FA7A530EF57578003DE76C /* GrowlDelegate+SpotifyScrobbler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GrowlDelegate+SpotifyScrobbler.m"; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 			children = (
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
-				C6FA7A350EF572EB003DE76C /* Test.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -187,7 +184,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
-				C6FA7A360EF572EB003DE76C /* Test.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

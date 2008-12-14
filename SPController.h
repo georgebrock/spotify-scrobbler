@@ -10,4 +10,5 @@
 
 @interface SPController : NSObject
 - (id)mainWindow;
++ (SPController*)sharedController;
 @end

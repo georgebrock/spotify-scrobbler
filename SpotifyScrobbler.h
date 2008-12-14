@@ -17,8 +17,4 @@
 
 + (BOOL)renameSelector:(SEL)originalSelector toSelector:(SEL)newSelector onClass:(Class)class;
 
-+ (void)listInstanceVars:(Class)class;
-
-- (IBAction)test:(id)sender;
-
 @end
