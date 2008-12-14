@@ -10,6 +10,7 @@
 #import "SPController+SpotifyScrobbler.h"
 #import "SPApplication+SpotifyScrobbler.h"
 #import "SPView+SpotifyScrobbler.h"
+#import "GrowlDelegate+SpotifyScrobbler.h"
 #import <objc/objc-class.h>
 
 
@@ -21,6 +22,31 @@
 	[SPController initScrobbler:plugin];
 	[SPApplication initScrobbler:plugin];
 	[SPView initScrobbler:plugin];
+	[SPGrowlDelegate initScrobbler:plugin];
+	
+	//[NSBundle loadNibNamed:@"Test" owner:plugin];
+}
+
+- (void)displayView:(NSView*)view level:(int)level
+{
+	NSLog(@"L%d %@ : %@", level, [view class], [view superclass]);
+	if([view isKindOfClass:[NSTextView class]])
+		NSLog(@"   Text: \"%@\"", [[(NSTextView*)view textStorage] string]);
+
+	NSArray *subviews = [view subviews];
+	NSEnumerator *viewEnum = [subviews objectEnumerator];
+	NSView *v;
+	while(v = [viewEnum nextObject])
+		[self displayView:v level:(level+1)];
+}
+
+- (IBAction)test:(id)sender
+{
+	NSLog(@"////////////////////////////////////////");
+	SPController *c = [SPController sharedController];
+	NSWindow *mainWin = [c mainWindow];
+	[self displayView:[mainWin contentView] level:0];
+	NSLog(@"////////////////////////////////////////");
 }
 
 + (SpotifyScrobbler*)sharedInstance

@@ -22,7 +22,7 @@
 
 + (void)initScrobbler:(SpotifyScrobbler*)plugin
 {
-	NSLog(@"Initialising SPController extensions...");
+	//NSLog(@"Initialising SPController extensions...");
 	
 	[SpotifyScrobbler renameSelector:@selector(setupWindowAndViews) toSelector:@selector(_original_setupWindowAndViews) onClass:[self class]];
 	[SpotifyScrobbler renameSelector:@selector(_new_setupWindowAndViews) toSelector:@selector(setupWindowAndViews) onClass:[self class]];
@@ -45,7 +45,7 @@
 
 - (void)_new_getURI:(id)uri withReplyEvent:(id)reply
 {
-	NSLog(@"******************* getURI:withReplyEvent:");
+	//NSLog(@"******************* getURI:withReplyEvent:");
 	[self _original_getURI:uri withReplyEvent:reply];
 }
 
@@ -53,7 +53,7 @@
 {
 
 	[self _original_setupWindowAndViews];
-	
+	/*
 	NSLog(@" ******* Called the repalced setupWindowAndViews method!");
 	NSLog(@" Main window is: %@", [self mainWindow]);
 	NSLog(@" Content view: %@", [[self mainWindow] contentView]);
@@ -72,17 +72,53 @@
 	NSLog(@"Responds to a KVO selector? %@", ([self respondsToSelector:@selector(observeValueForKeyPath:ofObject:change:context:)]?@"TRUE":@"FALSE"));
 	
 	NSLog(@" ***************");
+	*/
+}
+
+- (void)displayView:(NSView*)view level:(int)level
+{
+	NSLog(@"L%d %@ : %@", level, [view class], [view superclass]);
+	if([view isKindOfClass:[NSTextView class]])
+		NSLog(@"   Text: \"%@\"", [[(NSTextView*)view textStorage] string]);
+
+	NSArray *subviews = [view subviews];
+	NSEnumerator *viewEnum = [subviews objectEnumerator];
+	NSView *v;
+	while(v = [viewEnum nextObject])
+		[self displayView:v level:(level+1)];
 }
 
 - (void)_new_doAction:(id)action
 {
-	NSLog(@" ******* Just did an action: %@ %@ %@", action, [action target], NSStringFromSelector([(NSMenuItem*)action action]));
+
+	//NSLog(@" ******* Just did an action: %@ %@ %@", action, [action target], NSStringFromSelector([(NSMenuItem*)action action]));
 	[self _original_doAction:action];
+	
+	//[self displayView:[[self mainWindow] contentView] level:0];
+	
+	//[[[[[self mainWindow] contentView] subviews] objectAtIndex:0] setHidden:TRUE];
+	
+	/*
+	NSArray *subviews = [[[self mainWindow] contentView] subviews];
+	NSLog(@" Subview count: %d", [subviews count]);
+	NSEnumerator *viewEnum = [subviews objectEnumerator];
+	NSView *v;
+	while(v = [viewEnum nextObject])
+	{
+		NSLog(@" - %@", v);
+		NSArray *subsub = [v subviews];
+		NSEnumerator *subE = [subsub objectEnumerator];
+		NSView *sv;
+		while(sv = [subE nextObject])
+			NSLog(@"   - %@", ([sv isKindOfClass:[NSTextView class]] ? [[(NSTextView*)sv textStorage] string] : sv));
+	}
+	*/
+	
 }
 
 - (void)_new_observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	NSLog(@"*********** KVO baby!");
+	//NSLog(@"*********** KVO baby!");
 	[self _original_observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
@@ -94,7 +130,7 @@
 
 - (void)_new_openLink:(id)link userData:(id)data error:(NSError**)err
 {
-	NSLog(@"************ Open link %@", link);
+	//NSLog(@"************ Open link %@", link);
 	[self _original_openLink:link userData:data error:err];
 }
 

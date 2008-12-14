@@ -25,9 +25,9 @@
 
 - (void)_new_sendEvent:(id)event
 {
-	NSLog(@"************** Application send event: %@", event);
+	//NSLog(@"************** Application send event: %@", event);
 	[self _original_sendEvent:(id)event];
-	NSLog(@"////////////// Application send event: %@", event);
+	//NSLog(@"////////////// Application send event: %@", event);
 }
 
 @end

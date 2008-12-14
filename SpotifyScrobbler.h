@@ -19,4 +19,6 @@
 
 + (void)listInstanceVars:(Class)class;
 
+- (IBAction)test:(id)sender;
+
 @end
