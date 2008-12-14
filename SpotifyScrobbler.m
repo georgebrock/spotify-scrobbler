@@ -7,13 +7,16 @@
 //
 
 #import "SpotifyScrobbler.h"
+#import "SPController+SpotifyScrobbler.h"
+#import <objc/objc-class.h>
+
 
 @implementation SpotifyScrobbler
 
 + (void)load
 {
 	SpotifyScrobbler *plugin = [SpotifyScrobbler sharedInstance];
-	NSLog(@"Spotify scrobbler installed: %@", plugin);
+	[SPController initScrobbler:plugin];
 }
 
 + (SpotifyScrobbler*)sharedInstance
@@ -24,6 +27,18 @@
 		plugin = [[SpotifyScrobbler alloc] init];
 		
 	return plugin;
+}
+
++ (BOOL)renameSelector:(SEL)originalSelector toSelector:(SEL)newSelector onClass:(Class)class
+{
+	Method method = nil;
+
+	method = class_getInstanceMethod(class, originalSelector);
+	if (method == nil)
+			return NO;
+
+	method->method_name = newSelector;
+	return YES;
 }
 
 @end

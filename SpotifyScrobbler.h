@@ -16,4 +16,6 @@
 + (void)load;
 + (SpotifyScrobbler*)sharedInstance;
 
++ (BOOL)renameSelector:(SEL)originalSelector toSelector:(SEL)newSelector onClass:(Class)class;
+
 @end
