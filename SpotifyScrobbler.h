@@ -11,7 +11,9 @@
 
 @interface SpotifyScrobbler : NSObject 
 {
-
 }
+
++ (void)load;
++ (SpotifyScrobbler*)sharedInstance;
 
 @end

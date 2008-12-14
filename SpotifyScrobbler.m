@@ -8,7 +8,22 @@
 
 #import "SpotifyScrobbler.h"
 
-
 @implementation SpotifyScrobbler
+
++ (void)load
+{
+	SpotifyScrobbler *plugin = [SpotifyScrobbler sharedInstance];
+	NSLog(@"Spotify scrobbler installed: %@", plugin);
+}
+
++ (SpotifyScrobbler*)sharedInstance
+{
+	static SpotifyScrobbler *plugin = nil;
+	
+	if(!plugin)
+		plugin = [[SpotifyScrobbler alloc] init];
+		
+	return plugin;
+}
 
 @end
