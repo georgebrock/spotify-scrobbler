@@ -26,24 +26,50 @@
 
 - (void)_new_notificationWithTrackInfo:(struct TrackInfo*)info
 {
+	static NSString *previousSongTitle = nil;
+	static NSString *previousArtist = nil;
+	static unsigned int previousTrackLength = 0;
+	static NSTimeInterval startTimeStamp = 0;
+
+	[self _original_notificationWithTrackInfo:info];
+
 	if(info != NULL)
 	{
 		NSString *songTitle = [NSString stringWithFormat:@"%s", info->_field3];
-		NSString *dockTitle = [[[[[SPController sharedController] applicationDockMenu:self] itemArray] objectAtIndex:0] title];
+		unsigned int trackLength = info->_field4;
+		
+		NSString *dockTitle = [[[[[SPController sharedController] applicationDockMenu:nil] itemArray] objectAtIndex:0] title];
 		
 		int removeLength = [songTitle length] + 3;
 		NSString *artist = [dockTitle stringByReplacingCharactersInRange:NSMakeRange([dockTitle length]-removeLength, removeLength) withString:@""];
 		
-		NSString *url = [NSString stringWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=track.search&track=%@&artist=%@&api_key=b25b959554ed76058ac220b7b2e0a026", songTitle, artist];
-	
-		NSLog(@"+++++++++++++++++++++++++ TRACK INFORMATION +++++++++++++++++++++++++");
-		NSLog(@"Title:\t%@", songTitle);
-		NSLog(@"Artist:\t%@", artist);
-		NSLog(@"URL:\t%@", url);
-		NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		if(![artist isEqualToString:previousArtist] || ![songTitle isEqualToString:previousSongTitle])
+		{
+			[[SpotifyScrobbler sharedInstance] nowPlayingTrack:songTitle byArtist:artist];
+		
+			NSTimeInterval nowTimeStamp = [[NSDate date] timeIntervalSince1970];
+		
+			if(previousArtist && previousSongTitle)
+			{
+				NSTimeInterval timePlayed = nowTimeStamp - startTimeStamp;
+			
+				NSLog(@"++++++++++++++++++++ FINISHED TRACK INFORMATION +++++++++++++++++++++");
+				NSLog(@"Title:           %@", previousSongTitle);
+				NSLog(@"Artist:          %@", previousArtist);
+				NSLog(@"Track length:    %d seconds", previousTrackLength);
+				NSLog(@"Time played:     %.0f seconds", timePlayed);
+				NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+				
+				if(previousTrackLength > 30 && timePlayed >= 240.0 || timePlayed >= (previousTrackLength / 2.0))
+					[[SpotifyScrobbler sharedInstance] scrobbleTrack:previousSongTitle byArtist:previousArtist];
+			}
+			
+			[previousArtist release], previousArtist = [artist retain];
+			[previousSongTitle release], previousSongTitle = [songTitle retain];
+			previousTrackLength = trackLength;
+			startTimeStamp = nowTimeStamp;
+		}
 	}
-	
-	[self _original_notificationWithTrackInfo:info];
 }
 
 

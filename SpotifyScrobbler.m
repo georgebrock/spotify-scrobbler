@@ -47,4 +47,16 @@
 	return YES;
 }
 
+- (void)nowPlayingTrack:(NSString*)trackName byArtist:(NSString*)artist
+{
+	//TODO: Send "now playing" information
+	NSLog(@"++++++++++++++++++++ Should tell last.fm \"%@\" by %@ is now playing", trackName, artist);
+}
+
+- (void)scrobbleTrack:(NSString*)trackName byArtist:(NSString*)artist
+{
+	//TODO: Scrobble the track
+	NSLog(@"++++++++++++++++++++ Should scrobble \"%@\" by %@", trackName, artist);
+}
+
 @end

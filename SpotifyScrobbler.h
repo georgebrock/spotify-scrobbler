@@ -17,4 +17,7 @@
 
 + (BOOL)renameSelector:(SEL)originalSelector toSelector:(SEL)newSelector onClass:(Class)class;
 
+- (void)nowPlayingTrack:(NSString*)trackName byArtist:(NSString*)artist;
+- (void)scrobbleTrack:(NSString*)trackName byArtist:(NSString*)artist;
+
 @end
