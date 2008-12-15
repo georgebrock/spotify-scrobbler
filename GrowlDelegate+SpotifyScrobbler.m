@@ -45,7 +45,7 @@
 		
 		if(![artist isEqualToString:previousArtist] || ![songTitle isEqualToString:previousSongTitle])
 		{
-			[[SpotifyScrobbler sharedInstance] nowPlayingTrack:songTitle byArtist:artist];
+			[[SpotifyScrobbler sharedInstance] nowPlayingTrack:songTitle byArtist:artist length:trackLength];
 		
 			NSTimeInterval nowTimeStamp = [[NSDate date] timeIntervalSince1970];
 		
