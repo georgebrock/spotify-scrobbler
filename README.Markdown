@@ -3,6 +3,15 @@
 A SIMBL plugin that adds Last.fm Scrobbling capabilities to Spotify.
 Built (well, started anyway) at the Last.fm Hack Day 2008.
 
+## Usage:
+
+1. Download and install [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)
+2. Download and install the [Last.fm desktop application](http://www.last.fm/download) (This won't always be required, but it is for the moment)
+3. Download this project
+4. Copy build/Release/SpotifyScrobbler.bundle to ~/Library/Application Support/SIMBL/Plugins/
+5. Launch the Last.fm application
+6. Launch Spotify
+
 ## Already done:
 
 * Plugin loads with Spotify
@@ -27,3 +36,6 @@ Built (well, started anyway) at the Last.fm Hack Day 2008.
 * Scrobble tracks (stub method already called at appropriate times)
 * Send "now playing" state to Last.fm (stub method already called at appropriate times)
 
+## Small print ##
+
+This Scrobbler was built quickly at a Hack Day, there's not been a lot of time spent on testing etc. I'm happy to use it, but if you decide to use it too you do so at your own risk.
