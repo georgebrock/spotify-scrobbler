@@ -3,6 +3,10 @@
 A SIMBL plugin that adds Last.fm Scrobbling capabilities to Spotify.
 Built (well, started anyway) at the Last.fm Hack Day 2008.
 
+## Important note:
+
+As of 18th December 2008 [Spotify has built in scrobbling support](http://www.spotify.com/blog/archives/2008/12/18/spotify-scrobbles/).
+
 ## Usage:
 
 1. Download and install [SIMBL](http://www.culater.net/software/SIMBL/SIMBL.php)
@@ -23,6 +27,8 @@ Built (well, started anyway) at the Last.fm Hack Day 2008.
 * Scrobbling via the Last.fm desktop app
 
 ## Still to do:
+
+I won't be working on these items, because Spotify now has it's own scrobbler.
 
 ### Improve current delegated scrobbling
 
